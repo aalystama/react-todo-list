@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const styles = {
   form: {
@@ -18,17 +19,21 @@ const styles = {
   },
 };
 
-function TodoForm() {
+function TodoForm({ onSubmit }) {
   return (
-    <form style={styles.form}>
+    <form style={styles.form} onSubmit={onSubmit}>
       <input
+        name="todo"
         type="text"
         placeholder="Write your TODO"
         style={styles.input}
       ></input>
-      <button style={styles.button}>Enter</button>
     </form>
   );
 }
+
+TodoForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default TodoForm;
